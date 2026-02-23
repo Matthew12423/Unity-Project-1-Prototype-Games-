@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-    public Transform bossHealth;
-    private float bossHealthMaxLength;
     public Text timerText;
-    public Transform playerHealth;
-    private float playerHealthMaxLength;
+    public Transform healthBar;
+    private float healthBarMaxLength;
+    public Text killsText;
     // Start is called before the first frame update
     void Start()
     {
-        playerHealthMaxLength = playerHealth.localScale.x;
-        bossHealthMaxLength = bossHealth.localScale.x;
+        healthBarMaxLength = healthBar.localScale.x;
     }
 
     public void SetTimer(float time)
@@ -22,14 +20,13 @@ public class UIHandler : MonoBehaviour
         timerText.text = Utility.FormatTime(time);
     }
 
-    public void SetplayerHealth(float percent)
+    public void SetHealthBar(float percent)
     {
-        Vector3 scale = playerHealth.localScale;
-        playerHealth.localScale = new Vector3(playerHealthMaxLength * percent, scale.y, scale.z);
+        Vector3 scale = healthBar.localScale;
+        healthBar.localScale = new Vector3(healthBarMaxLength * percent, scale.y, scale.z);
     }
-    public void SetbossHealth(float percent)
+    public void SetKills(int value)
     {
-        Vector3 scale = bossHealth.localScale;
-        bossHealth.localScale = new Vector3(bossHealthMaxLength * percent, scale.y, scale.z);
+        killsText.text = value. ToString();
     }
 }

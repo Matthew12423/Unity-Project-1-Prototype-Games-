@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameStart : MonoBehaviour
+public class TextOP : MonoBehaviour
 {
-    public void StartGameButton()
+    public Text text;
+
+    public void Print(string text)
     {
-        SceneManager.LoadScene("Scene 2");
+        Debug.Log(text);
+        this.text.text += text;
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Print("Hello World");
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
         
     }
+    */
 }
